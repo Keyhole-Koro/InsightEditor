@@ -1,0 +1,23 @@
+{
+  "name": "insight_editor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keyhole-Koro/InsightEditor.git"
+  },
+  "author": "Keyhole-Koro",
+  "bugs": {
+    "url": "https://github.com/Keyhole-Koro/InsightEditor/issues"
+  },
+  "homepage": "https://github.com/Keyhole-Koro/InsightEditor#readme",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.7.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
