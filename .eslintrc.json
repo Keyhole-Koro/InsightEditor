@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended" // Uses eslint-config-prettier to disable conflicting ESLint rules
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error" // Marks Prettier violations as ESLint errors
+  }
+}
