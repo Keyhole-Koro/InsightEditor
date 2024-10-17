@@ -14,11 +14,10 @@ RUN npm install
 COPY . .
 
 # Compile the TypeScript code
-RUN npx tsc
+# RUN npx tsc
 
 # Expose a port (useful if running a web server)
-EXPOSE 3000
+EXPOSE 4200
 
 # Command to run the app
-# If you're running a web server, replace `npx ts-node src/index.ts` with your server start command.
-CMD ["npx", "ts-node", "src/index.ts"]
+CMD ["npm", "run", "start"]
