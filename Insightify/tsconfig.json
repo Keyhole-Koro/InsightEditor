@@ -18,9 +18,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "@utils/*": ["components/utils/*"],
+      "@components/*": ["components/*"],
+      "@managers/*": ["components/managers/*"],
+      "@item/*": ["components/item/*"],
+      "@llitems/*": ["components/item/low-level/*"]
+    }
   },
   "include": [
     "src"
-  ]
+, "craco.config.js"  ]
 }
