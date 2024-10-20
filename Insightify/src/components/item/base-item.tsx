@@ -1,44 +1,46 @@
+import React, { useState } from 'react';
 import { RGBColor, Colors } from "../utils/color";
 
 // Define the interface for dependencies
 export interface BaseItem {
-    parent: BaseItem | undefined;        // Optional parent to allow root forms without a parent
-    children: BaseItem[];     // Use an array to hold child forms
+  id: number;
+  x: number;
+  y: number;
+  scale: number;
+  color: RGBColor;
 
-    x: number;
-    y: number;
-    scale: number;
-    color: RGBColor;
+  setPosition(x: number, y: number): void;
 
-    render(): JSX.Element;
+  render(): JSX.Element;
 }
 
-export class BaseItemClass implements BaseItem {
-    x: number;
-    y: number;
-    scale: number;
-    color: RGBColor;
-    parent: BaseItem | undefined;
-    children: BaseItem[] = [];
-  
-    constructor({
-      x = 0,
-      y = 0,
-      scale = 1,
-      color = Colors.gray,
-      parent = undefined,
-      children = [],
-    }: Partial<BaseItem> = {}) {
-      this.x = x;
-      this.y = y;
-      this.scale = scale;
-      this.color = color;
-      this.parent = parent;
-      this.children = children;
-    }
-  
-    render(): JSX.Element {
-      return <></>;
-    }
+export abstract class BaseItemClass implements BaseItem {
+  id: number;
+  x: number;
+  y: number;
+  scale: number;
+  color: RGBColor;
+  isDragging: boolean;
+
+  constructor({
+    id = -1,
+    x = 0,
+    y = 0,
+    scale = 1,
+    color = Colors.gray,
+  }: Partial<BaseItem> = {}) {
+    this.id = id;
+    this.x = x;
+    this.y = y;
+    this.scale = scale;
+    this.color = color;
+    this.isDragging = false;
   }
-  
+
+  setPosition(x: number, y: number): void {
+    this.x = x;
+    this.y = y;
+  }
+
+  abstract render(): JSX.Element;
+}

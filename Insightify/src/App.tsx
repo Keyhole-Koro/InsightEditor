@@ -1,19 +1,23 @@
 import React from 'react';
 import ItemManager from '@managers/ItemManager';
 import SvgCanvas from '@components/ItemSvgCanvas/ItemSvgCanvas';
-import { Circle } from '@llitems/items';
+import { Circle, Rectangle } from '@llitems/items';
 import { Colors } from '@utils/color'
 
 const App: React.FC = () => {
   const itemManager = new ItemManager();
 
-  itemManager.addItem(new Circle({ x: 100, y: 100, radius: 50, color: Colors.red }));
+  const circle1 = new Circle({ x: 100, y: 100, radius: 50, color: Colors.red });
+  itemManager.addItem(circle1);
   itemManager.addItem(new Circle({ x: 200, y: 100, radius: 30, color: Colors.blue }));
+  itemManager.addItem(new Rectangle({ x: 300, y: 300, width: 100, height: 100, color: Colors.red }));
+
+  itemManager.removeItem(circle1);
 
   return (
     <div>
       <h1>Vector Items with SVG</h1>
-      <SvgCanvas itemManager={itemManager} />
+      <SvgCanvas itemManager={itemManager} width={1000} height={1000}/>
     </div>
   );
 };
